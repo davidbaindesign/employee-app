@@ -11,8 +11,8 @@ namespace WebAPI.DataModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Department { get; set; }
-        public string DateOfHire { get; set; }
-        public string Birthday { get; set; }
+        public DateTime DateOfHire { get; set; }
+        public DateTime Birthday { get; set; }
         public string ProfilePhoto { get; set; }
         public string ProfileDesciption { get; set; }
 
