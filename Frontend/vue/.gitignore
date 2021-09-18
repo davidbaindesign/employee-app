@@ -1,0 +1,18 @@
+# These are ignored by the API and we need them
+!build
+!publish
+
+# Node
+node_modules
+npm-debug.log
+
+# App Specific
+dist/
+
+# Misc
+jsconfig.json
+TODO
+.vscode
+
+# OS X
+.DS_Store
