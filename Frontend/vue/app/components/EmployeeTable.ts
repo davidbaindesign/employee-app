@@ -6,11 +6,19 @@ export const EmployeeTable = Vue.component('employee-table', {
         template: `
         <div>
           <h1>Employees</h1>
-            <ul>
-              <li v-for="(employee, x) in employees" :key="x">
-              <h3>{{employee.FirstName + " " + employee.LastName}}</h3>
-              </li>
-            </ul>
-        </div>
+            <table>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Date Of Hire</th>
+              <th>Birthday</th>
+            </tr>
+            <tr v-for="(employee, x) in employees" :key="x">
+              <td>{{employee.FirstName + " " + employee.LastName}}</td>
+              <td>{{employee.Department}}</td>
+              <td>{{employee.DateOfHire}}</td>
+              <td>{{employee.Birthday}}</td>
+            </tr>
+          </table> 
         `
     });
