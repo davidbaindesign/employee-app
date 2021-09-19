@@ -5,8 +5,8 @@ import Vue from 'vue';
 export const EmployeeCreate = Vue.component('employee-create', {
         data: function() {
             return {
-                firstName: "Dale",
-                lastName: "Davis",
+                firstName: "",
+                lastName: "",
                 //todo: get from department table, create dropdown
                 department: "Product",
                 //todo: date object validation
@@ -54,9 +54,9 @@ export const EmployeeCreate = Vue.component('employee-create', {
           <h1>Create Employee</h1>
           <form>
           <label for="fname">First name:</label><br>
-          <input type="text" id="fname" name="fname"><br>
+          <input  v-model="firstName" type="text" id="fname" name="fname"><br>
           <label for="lname">Last name:</label><br>
-          <input type="text" id="lname" name="lname"><br><br>
+          <input v-model="lastName" type="text" id="lname" name="lname"><br><br>
           <button v-on:click.stop.prevent="addEmployee()">Submit Updated 2</button>
           </form>
         </div>
