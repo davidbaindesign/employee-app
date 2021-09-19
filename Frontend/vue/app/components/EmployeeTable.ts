@@ -11,7 +11,7 @@ export const EmployeeTable = Vue.component('employee-table', {
         template: `
         <div>
           <h1>Employees</h1>
-          <button v-on:click="updateState">Add Employee</button>
+          <button v-on:click="updateState">Create Employee</button>
             <table>
             <tr>
               <th>Name</th>
