@@ -13,20 +13,25 @@ new Vue({
     EmployeeTable,
     EmployeeCreate
   },
-  created() {
-    
-    fetch("http://localhost:4105/api/employee")
-    .then(response => response.json())
-    .then(data => {
-     this.employeeData = data;
+  methods: {
+    getEmployeeData() {
+      //not creating employee, getting data, make sure we display the right component
+      this.createEmployee = false;
+      fetch("http://localhost:4105/api/employee")
+      .then(response => response.json())
+      .then(data => {
+      this.employeeData = data;
     });
-    
+    }
+  },
+  created() {
+    this.getEmployeeData();
   },
   template: `
   <div>
     <h1>{{createEmployee}}</h1>
     <employee-table v-if="!createEmployee" v-on:clicked="createEmployee = true" v-bind:employees="employeeData"/>
-    <employee-create v-if="createEmployee" v-on:clicked="createEmployee = false" />
+    <employee-create v-if="createEmployee" v-on:clicked="getEmployeeData();" />
   </div>
   `
 })
