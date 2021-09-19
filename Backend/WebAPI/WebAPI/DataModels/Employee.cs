@@ -14,7 +14,7 @@ namespace WebAPI.DataModels
         public DateTime DateOfHire { get; set; }
         public DateTime Birthday { get; set; }
         public string ProfilePhoto { get; set; }
-        public string ProfileDesciption { get; set; }
+        public string ProfileDescription { get; set; }
 
     }
 }

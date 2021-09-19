@@ -89,7 +89,7 @@ namespace WebAPI.Controllers
                 ,'" + employee.DateOfHire + @"'
                 ,'" + employee.Birthday + @"'
                 ,'" + employee.ProfilePhoto + @"'
-                 ,'" + employee.ProfileDesciption + @"'
+                 ,'" + employee.ProfileDescription + @"'
                 )";
 
             DataTable table = new DataTable();
@@ -108,7 +108,7 @@ namespace WebAPI.Controllers
                 }
             }
 
-            return new JsonResult("posed successfully");
+            return new JsonResult("posted successfully");
         }
 
 
