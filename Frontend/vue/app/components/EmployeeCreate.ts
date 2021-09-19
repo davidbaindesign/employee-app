@@ -46,8 +46,6 @@ export const EmployeeCreate = Vue.component('employee-create', {
                 alert('Failed' + error);
             })
           }
-          
-        
         },
         template: `
         <div>

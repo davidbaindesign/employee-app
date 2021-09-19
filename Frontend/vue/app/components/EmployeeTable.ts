@@ -24,6 +24,7 @@ export const EmployeeTable = Vue.component('employee-table', {
               <td>{{employee.Department}}</td>
               <td>{{employee.DateOfHire}}</td>
               <td>{{employee.Birthday}}</td>
+              <td><employee-delete v-on:deleted="$emit('deleted', true)" v-bind:id="employee.EmployeeId"/></td>
             </tr>
           </table> 
         </div>

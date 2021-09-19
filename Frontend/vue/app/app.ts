@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { EmployeeTable } from './components/EmployeeTable';
 import { EmployeeCreate } from './components/EmployeeCreate';
+import { EmployeeDelete } from './components/EmployeeDelete';
 
 
 new Vue({ 
@@ -11,7 +12,8 @@ new Vue({
   },
   components: {
     EmployeeTable,
-    EmployeeCreate
+    EmployeeCreate,
+    EmployeeDelete
   },
   methods: {
     getEmployeeData() {
@@ -30,7 +32,7 @@ new Vue({
   template: `
   <div>
     <h1>{{createEmployee}}</h1>
-    <employee-table v-if="!createEmployee" v-on:clicked="createEmployee = true" v-bind:employees="employeeData"/>
+    <employee-table v-if="!createEmployee" v-on:clicked="createEmployee = true" v-on:deleted="getEmployeeData()" v-bind:employees="employeeData"/>
     <employee-create v-if="createEmployee" v-on:clicked="getEmployeeData();" />
   </div>
   `
