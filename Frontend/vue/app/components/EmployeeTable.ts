@@ -20,5 +20,6 @@ export const EmployeeTable = Vue.component('employee-table', {
               <td>{{employee.Birthday}}</td>
             </tr>
           </table> 
+        </div>
         `
     });
