@@ -3,9 +3,15 @@ import Vue from 'vue';
 
 export const EmployeeTable = Vue.component('employee-table', {
         props: ['employees'],
+        methods: {
+          updateState: function (value) {
+            this.$emit('clicked', true);
+          }
+        },
         template: `
         <div>
           <h1>Employees</h1>
+          <button v-on:click="updateState">Add Employee</button>
             <table>
             <tr>
               <th>Name</th>

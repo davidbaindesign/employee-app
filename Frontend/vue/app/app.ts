@@ -1,12 +1,14 @@
 import Vue from 'vue';
-
 import { EmployeeTable } from './components/EmployeeTable';
+
+//https://stackoverflow.com/questions/40915436/vuejs-update-parent-data-from-child-component
 
 
 new Vue({ 
   el: '#mount' ,
   data: {
-    employeeData: []
+    employeeData: [],
+    createEmployee: false
   },
   components: {
     EmployeeTable
@@ -15,16 +17,15 @@ new Vue({
     fetch("http://localhost:5000/api/employee")
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-    //this.json = data.data[0].DepartmentName.toString();
      this.employeeData = data;
-  });
+    });
   },
   template: `
-    <employee-table v-bind:employees="employeeData"/>
+  <div>
+    <h1>{{createEmployee}}</h1>
+    <employee-table v-on:clicked="createEmployee = true" v-bind:employees="employeeData"/>
+  </div>
   `
-
-
 })
 
 
