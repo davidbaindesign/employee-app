@@ -37,9 +37,8 @@ export const EmployeeCreate = Vue.component('employee-create', {
             })
             .then(res=>res.json())
             .then((result)=>{
-                console.log(result);
                 alert(result);
-                this.$emit('clicked', true);
+                this.$store.commit("toggle");
             },
             (error)=>{
                 console.log(error);
@@ -50,14 +49,14 @@ export const EmployeeCreate = Vue.component('employee-create', {
         template: `
         <div>
           <h1>Create Employee</h1>
-          <form>
+          <form v-on:submit.prevent="addEmployee()">
           <label for="fname">First name:</label><br>
           <input  v-model="firstName" type="text" id="fname" name="fname"><br>
           <label for="lname">Last name:</label><br>
           <input v-model="lastName" type="text" id="lname" name="lname"><br><br>
-          <button v-on:click.stop.prevent="addEmployee()">Add</button>
-          <button v-on:click="$emit('deleted', true)">Cancel</button>
+          <button type="submit">Add</button>
           </form>
+          <button v-on:click="this.$store.commit('toggle')">Cancel</button>
         </div>
         `
     });

@@ -22,7 +22,7 @@ export const EmployeeTable = Vue.component('employee-table', {
               <th>Birthday</th>
             </tr>
             <tr v-for="(employee, x) in employees" :key="x">
-              <td><div><span class="buttonCell">{{employee.FirstName + " " + employee.LastName}}</span> <employee-delete v-on:deleted="$emit('deleted', true)" v-bind:id="employee.EmployeeId"/></div></td>
+              <td><div><span class="buttonCell">{{employee.FirstName + " " + employee.LastName}}</span> <employee-delete v-bind:id="employee.EmployeeId"/></div></td>
               <td><span>{{employee.Department}}</span></td>
               <td><span>{{employee.DateOfHire}}</span></td>
               <td><span>{{employee.Birthday}}</span></td>

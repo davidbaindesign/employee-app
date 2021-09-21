@@ -8,7 +8,7 @@ export const EmployeeDelete = Vue.component('employee-delete', {
                 method: 'DELETE',
                 headers:{'Accept':'application/json',
                     'Content-Type':'application/json'}
-            }).then(response => this.$emit('deleted', true));
+            }).then(response => this.$store.commit("toggle"));
           }
         },
         template: `
