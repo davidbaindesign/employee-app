@@ -12,7 +12,7 @@ export const EmployeeDelete = Vue.component('employee-delete', {
           }
         },
         template: `
-        <button v-on:click="deleteEmployee()">
+        <button class="deleteButton" v-on:click="deleteEmployee()">
             Delete
         </button>
         `

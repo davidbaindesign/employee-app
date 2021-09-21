@@ -55,7 +55,8 @@ export const EmployeeCreate = Vue.component('employee-create', {
           <input  v-model="firstName" type="text" id="fname" name="fname"><br>
           <label for="lname">Last name:</label><br>
           <input v-model="lastName" type="text" id="lname" name="lname"><br><br>
-          <button v-on:click.stop.prevent="addEmployee()">Submit Updated 2</button>
+          <button v-on:click.stop.prevent="addEmployee()">Add</button>
+          <button v-on:click="$emit('deleted', true)">Cancel</button>
           </form>
         </div>
         `

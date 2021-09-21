@@ -31,7 +31,6 @@ new Vue({
   },
   template: `
   <div>
-    <h1>{{createEmployee}}</h1>
     <employee-table v-if="!createEmployee" v-on:clicked="createEmployee = true" v-on:deleted="getEmployeeData()" v-bind:employees="employeeData"/>
     <employee-create v-if="createEmployee" v-on:clicked="getEmployeeData();" />
   </div>

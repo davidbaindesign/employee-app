@@ -20,6 +20,24 @@ h1, h2, h3, h4, h5, h6 {
 #mount {
     @include standardBorder();
 }
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+tr:hover {background-color: #ddd;}
+  
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $darkBlue;
+    color: white;
+  }
 
 .title {
     border-bottom: 1px solid $lightGray;
@@ -29,6 +47,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .content {
     padding-left: 20px;
+}
+
+.buttonCell {
+    margin: 0 auto;
+    padding: 9px;
+    display: inline-block;
+}
+
+.deleteButton {
+    background: red;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 8px;
+    margin: 5px;
+    float: right;
 }
 
 .weatherData {
@@ -53,12 +86,11 @@ label, p {
 
 button {
     color: white;
-    background-color: $darkBlue;
+    background-color: #435b8d;
     padding: 8px 14px;
     border-radius: 20px;
     border-width: 0;
-    float: right;
-    margin-top: 2px;
+    margin: 5px;
 }
 
 input {
