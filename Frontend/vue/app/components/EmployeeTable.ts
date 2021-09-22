@@ -1,5 +1,10 @@
 import Vue from 'vue';
 
+import Dexie from 'dexie';
+
+//todo: store employees with indexedDB, test running without server
+var db = new Dexie('localEmployeeDB');
+
 
 export const EmployeeTable = Vue.component('employee-table', {
         props: ['employees'],
