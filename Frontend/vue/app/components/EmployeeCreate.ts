@@ -69,9 +69,10 @@ export const EmployeeCreate = Vue.component('employee-create', {
           <h1>Create Employee</h1>
           <p v-if="errors.length">
             <b>You forgot a few things:</b>
-          <ul>
-            <li v-for="error in errors">{{ error }}</li>
-          </ul>
+            <ul>
+              <li v-for="error in errors">{{ error }}</li>
+            </ul>
+          </p>
           <form v-on:submit.prevent="addEmployee()">
           <label for="fname">First name:</label><br>
           <input  v-model="firstName" type="text" id="fname" name="fname"><br>
