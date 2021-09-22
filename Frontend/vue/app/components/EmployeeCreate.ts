@@ -9,10 +9,8 @@ export const EmployeeCreate = Vue.component('employee-create', {
                 lastName: "",
                 //todo: get from department table, create dropdown
                 department: "Product",
-                //todo: date object validation
-                dateOfHire: new Date().toISOString(),
-                birthday:  new Date().toISOString(),
-                //todo: make option for clicking on employee and show profile and description
+                dateOfHire: "",
+                birthday:  "",
                 profilePhoto: "Hello, this is my profile",
                 profileDescription: "mypicture.png"
             }
@@ -29,7 +27,7 @@ export const EmployeeCreate = Vue.component('employee-create', {
                     FirstName: this.firstName,
                     LastName: this.lastName,
                     Department: this.department,
-                    DateOfHire: new Date().toISOString(),
+                    DateOfHire: this.dateOfHire,
                     Birthday: new Date().toISOString(),
                     ProfilePhoto: this.profilePhoto,
                     ProfileDescription: this.profileDescription
@@ -54,9 +52,13 @@ export const EmployeeCreate = Vue.component('employee-create', {
           <input  v-model="firstName" type="text" id="fname" name="fname"><br>
           <label for="lname">Last name:</label><br>
           <input v-model="lastName" type="text" id="lname" name="lname"><br><br>
+          <label for="DateOfHire">Date Of Hire:</label><br>
+          <input type="date" name="DateOfHire" v-model="dateOfHire">
+          <label for="DateOfHire">Birthday:</label><br>
+          <input type="date" name="Birthday" v-model="birthday">
           <button type="submit">Add</button>
-          </form>
           <button v-on:click="$store.commit('toggle');">Cancel</button>
+          </form>
         </div>
         `
     });
