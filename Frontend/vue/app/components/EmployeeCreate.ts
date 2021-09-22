@@ -56,7 +56,7 @@ export const EmployeeCreate = Vue.component('employee-create', {
           <input v-model="lastName" type="text" id="lname" name="lname"><br><br>
           <button type="submit">Add</button>
           </form>
-          <button v-on:click="this.$store.commit('toggle')">Cancel</button>
+          <button v-on:click="$store.commit('toggle');">Cancel</button>
         </div>
         `
     });
