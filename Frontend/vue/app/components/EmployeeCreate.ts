@@ -47,7 +47,7 @@ export const EmployeeCreate = Vue.component('employee-create', {
                       LastName: this.lastName,
                       Department: this.department,
                       DateOfHire: this.dateOfHire,
-                      Birthday: new Date().toISOString(),
+                      Birthday: this.birthday,
                       ProfilePhoto: this.profilePhoto,
                       ProfileDescription: this.profileDescription
                   })
