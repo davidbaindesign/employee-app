@@ -1,6 +1,6 @@
+import { debug } from 'console';
 import Vue from 'vue';
-
-
+import { EMPLOYEE_API } from '../api';
 
 export const EmployeeCreate = Vue.component('employee-create', {
         data: function() {
@@ -8,13 +8,12 @@ export const EmployeeCreate = Vue.component('employee-create', {
                 firstName: null,
                 lastName: null,
                 //todo: get from department table, create dropdown
-                department: "Product",
+                department: null,
                 dateOfHire: null,
                 birthday:  null,
                 profilePhoto: "Hello, this is my profile",
                 profileDescription: "mypicture.png",
                 errors: new Array<string>()
-
             }
         },
         methods: {
@@ -36,7 +35,7 @@ export const EmployeeCreate = Vue.component('employee-create', {
             
             if (!this.errors.length) {
 
-              fetch("http://localhost:4105/api/employee", {
+              fetch(EMPLOYEE_API, {
                   method: 'POST',
                   headers: {
                     'Accept':'application/json',
@@ -62,6 +61,10 @@ export const EmployeeCreate = Vue.component('employee-create', {
                   alert('Failed' + error);
               })
             }
+          },
+          childUpdateValue(value) {
+            console.log("Child update value " + value);
+            this.department = value;
           }
         },
         template: `
@@ -82,6 +85,7 @@ export const EmployeeCreate = Vue.component('employee-create', {
           <input type="date" name="DateOfHire" v-model="dateOfHire">
           <label for="DateOfHire">Birthday:</label><br>
           <input type="date" name="Birthday" v-model="birthday">
+          <department-dropdown v-on:send-value="childUpdateValue" />
           <button type="submit">Add</button>
           <button v-on:click="$store.commit('toggle');">Cancel</button>
           </form>

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex'
+import { EMPLOYEE_API } from './api';
 
 Vue.use(Vuex)
 
@@ -20,7 +21,7 @@ const store = new Vuex.Store({
 import { EmployeeTable } from './components/EmployeeTable';
 import { EmployeeCreate } from './components/EmployeeCreate';
 import { EmployeeDelete } from './components/EmployeeDelete';
-
+import { DepartmentDropdown } from './components/DepartmentDropdown'
 
 new Vue({ 
   el: '#mount' ,
@@ -32,17 +33,18 @@ new Vue({
   components: {
     EmployeeTable,
     EmployeeCreate,
-    EmployeeDelete
+    EmployeeDelete,
+    DepartmentDropdown
   },
   methods: {
     getEmployeeData() {
       //not creating employee, getting data, make sure we display the right component
       this.createEmployee = false;
-      fetch("http://localhost:4105/api/employee")
+      fetch(EMPLOYEE_API)
       .then(response => response.json())
       .then(data => {
       this.employeeData = data;
-    });
+      });
     }
   },
   created() {
