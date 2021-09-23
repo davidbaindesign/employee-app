@@ -1,4 +1,3 @@
-import { debug } from 'console';
 import Vue from 'vue';
 import { EMPLOYEE_API } from '../api';
 
@@ -7,7 +6,6 @@ export const EmployeeCreate = Vue.component('employee-create', {
             return {
                 firstName: null,
                 lastName: null,
-                //todo: get from department table, create dropdown
                 department: null,
                 dateOfHire: null,
                 birthday:  null,

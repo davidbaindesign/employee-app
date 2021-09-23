@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import { fetchApi } from '../helpers/ApiFunctions';
+import { Department } from '../helpers/Models';
 import { DEPARTMENT_API } from '../api';
 
 export const DepartmentDropdown = Vue.component('department-dropdown', {
@@ -12,17 +14,15 @@ export const DepartmentDropdown = Vue.component('department-dropdown', {
                 console.log(event.target.value)
                 this.$emit('send-value', event.target.value);
           },
-          getDepartments: function () {  
-            fetch(DEPARTMENT_API)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                data.forEach(element => {
-                    this.departments.push(element.DepartmentName);
-                });
+          getDepartments: async function () {  
+            let data = await fetchApi<Department[]>(DEPARTMENT_API);
+
+            data.forEach(element => {
+                this.departments.push(element.DepartmentName);
+            });
                 //set the value initally with the one that is showing
-                this.$emit('send-value', this.departments[0]);
-            })
+            this.$emit('send-value', this.departments[0]);
+            
           }    
         },
         created() {

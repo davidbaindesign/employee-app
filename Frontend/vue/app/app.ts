@@ -1,6 +1,8 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
-import { EMPLOYEE_API } from './api';
+import Vuex from 'vuex';
+import {fetchApi} from './helpers/ApiFunctions';
+import {Employee} from './helpers/Models';
+import {EMPLOYEE_API} from './api'
 
 Vue.use(Vuex)
 
@@ -26,7 +28,7 @@ import { DepartmentDropdown } from './components/DepartmentDropdown'
 new Vue({ 
   el: '#mount' ,
   data: {
-    employeeData: [],
+    employeeData: new Array<Employee>(),
     createEmployee: false
   },
   store: store,
@@ -37,21 +39,18 @@ new Vue({
     DepartmentDropdown
   },
   methods: {
-    getEmployeeData() {
+    async getEmployeeData() {
       //not creating employee, getting data, make sure we display the right component
       this.createEmployee = false;
-      fetch(EMPLOYEE_API)
-      .then(response => response.json())
-      .then(data => {
-      this.employeeData = data;
-      });
+      this.employeeData = await fetchApi<Employee[]>(EMPLOYEE_API);
     }
   },
   created() {
     this.getEmployeeData();
     this.$store.watch(this.$store.getters.getR, n => {
       if (n) {
-        //refresh if true, then set back to false and do nothing
+        //refresh if true, then set back to false and do 
+        console.log("Toggled!!");
         this.getEmployeeData();
         store.commit("toggle");
       }
