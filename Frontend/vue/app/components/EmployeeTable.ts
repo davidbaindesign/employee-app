@@ -6,6 +6,9 @@ import {EMPLOYEE_API} from '../api';
 
 //todo: store employees with indexedDB, test running without server
 var db = new Dexie('localEmployeeDB');
+db.version(1).stores({
+  employees: 'EmployeeId,FirstName,LastName,Department,DateOfHire,Birthday,ProfilePhoto,ProfileDescription'
+});
 
 
 export const EmployeeTable = Vue.component('employee-table', {
@@ -17,6 +20,18 @@ export const EmployeeTable = Vue.component('employee-table', {
         methods: {
           async getEmployeeData() {
             this.employeeData = await fetchApi<Employee[]>(EMPLOYEE_API);
+
+            //going to take longer than I thought with typescript
+            /*
+            db.employees.bulkPut(this.employeeData).then(result => {
+              alert ("Successfully stored the array");
+            }).catch(error => {
+              alert ("Error: " + error);
+            });
+            */
+           
+      
+
           }
         },
         created() {
