@@ -3,6 +3,7 @@ import Vue from 'vue';
 import { DEPARTMENT_API } from '../api';
 import { fetchApi } from '../helpers/ApiFunctions';
 
+
 export const DepartmentCreate = Vue.component('department-create', {
         data: function() {
             return {
@@ -35,7 +36,7 @@ export const DepartmentCreate = Vue.component('department-create', {
                     'Content-Type':'application/json'
                 },
                   body: JSON.stringify({
-                      DeparmentName: this.departmentName
+                    DepartmentName: this.departmentName
                   })
               })
               .then(res=>res.json())
