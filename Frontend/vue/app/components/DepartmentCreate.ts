@@ -2,6 +2,7 @@ import { Department } from '@app/helpers/Models';
 import Vue from 'vue';
 import { DEPARTMENT_API } from '../api';
 import { fetchApi } from '../helpers/ApiFunctions';
+import { router } from '../app'
 
 
 export const DepartmentCreate = Vue.component('department-create', {
@@ -42,7 +43,7 @@ export const DepartmentCreate = Vue.component('department-create', {
               .then(res=>res.json())
               .then((result)=>{
                   alert(result);
-                  this.$store.commit("toggle");
+                  router.push('/');
               },
               (error)=>{
                   console.log(error);

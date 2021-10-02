@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { EMPLOYEE_API } from '../api';
+import { router } from '../app'
 
 export const EmployeeCreate = Vue.component('employee-create', {
         data: function() {
@@ -52,7 +53,7 @@ export const EmployeeCreate = Vue.component('employee-create', {
               .then(res=>res.json())
               .then((result)=>{
                   alert(result);
-                  this.$store.commit("toggle");
+                  router.push('/');
               },
               (error)=>{
                   console.log(error);
